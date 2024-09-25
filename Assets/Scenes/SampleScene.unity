@@ -349,13 +349,17 @@ MonoBehaviour:
   speed: 2
   MoveSpeed: 5
   Offset: {x: 4, y: -1, z: 0}
+  Timer: 0
   Interval_ase: 0.2
   Interval_ketyappu: 0.3
+  Interval_kabi: 1
   BulletPrefab_ase: {fileID: 542906805339941791, guid: 5a825d53f932b8b459f661ab4facc47e, type: 3}
   BulletPrefab_ketyappu: {fileID: 1130130443784694934, guid: df9cc8033e02d6745a27b0e755550e50, type: 3}
   ShotPoint: {fileID: 547884781}
   ShotPoint_ketyappu: {fileID: 954224799}
   ChangeScore: 0
+  spear_attack: {fileID: 0}
+  Timer_Spear: 0
 --- !u!4 &510666244
 Transform:
   m_ObjectHideFlags: 0
@@ -371,6 +375,7 @@ Transform:
   - {fileID: 547884781}
   - {fileID: 954224799}
   - {fileID: 1891422563}
+  - {fileID: 1775548956}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -992,6 +997,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1775548956}
   - component: {fileID: 1775548957}
+  - component: {fileID: 1775548958}
   m_Layer: 0
   m_Name: ' Spear'
   m_TagString: Untagged
@@ -1007,13 +1013,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1775548954}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.08, y: -0.63, z: -0.13045159}
+  m_LocalPosition: {x: 1.53, y: -0.089999974, z: -0.13045159}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1683487695}
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_Father: {fileID: 510666244}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1775548957
 Animator:
@@ -1036,6 +1042,23 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1775548958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1775548954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 893db085918090f4e8a37738e9b3e928, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Interval_kabi: 0
+  timer: 6.324951
+  player_main: {fileID: 510666243}
+  ChangeScore: 0
+  Spear: {fileID: 1683487694}
 --- !u!1 &1884135929
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,23 +11,26 @@ public class Player_main : MonoBehaviour
     [SerializeField] float speed;
     public float MoveSpeed = 5.0f;//スピード
     public Vector3 Offset = Vector3.zero;
-    public static float timer = 0.0f;
+    public float Timer = 0.0f;//
     public float Interval_ase = 0.0f;//汗の玉のインターバル
     public float Interval_ketyappu = 0.0f;//ケチャップの玉のインターバル
-    public static float Interval_kabi = 0.0f;//カビの玉のインターバル
+    public float Interval_kabi=0.0f;//カビの玉のインターバル
     public GameObject BulletPrefab_ase;
     public GameObject BulletPrefab_ketyappu;
     public Transform ShotPoint;
     public Transform ShotPoint_ketyappu;
     public int ChangeScore=0;//変身切り替え
     private Animator animatormae;
-
     Vector3 beforemousePos;
-
+    public static float Interval_kabi_Kari = 0.0f;
+    public Player_main spear_attack;
+    public float Timer_Spear;
     // Start is called before the first frame update
     void Start()
     {
+        Interval_kabi_Kari = Interval_kabi;
         animatormae = GetComponent<Animator>();//アニメーション
+       
     }
     public IEnumerator ase()
     {
@@ -41,7 +44,7 @@ public class Player_main : MonoBehaviour
 
     void Update()
     {
-
+       // Timer_Spear = spear_attack.Timer_Spear;
         Move();
         Change();
         Shooting();
@@ -79,26 +82,22 @@ public class Player_main : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
 
-            timer += Time.deltaTime;
-          if (ChangeScore==0&&timer>=Interval_ase)//汗
+            Timer += Time.deltaTime;
+          if (ChangeScore==0&&Timer>=Interval_ase)//汗
           {
                 GameObject obj = Instantiate(BulletPrefab_ase, ShotPoint.position, ShotPoint.rotation);
                 //タイマーリセット
-                timer = 0;
+                Timer = 0;
           }
-            if (ChangeScore == 1&&timer>=Interval_ketyappu)//ケチャップ
+            if (ChangeScore == 1&&Timer>=Interval_ketyappu)//ケチャップ
             {
                 GameObject obj = Instantiate(BulletPrefab_ketyappu, ShotPoint_ketyappu.position, ShotPoint_ketyappu.rotation);
                 //タイマーリセット
-                timer = 0;
+                Timer = 0;
             }
-              if (ChangeScore ==2 && timer >= Interval_ketyappu)//カビ
+              if (ChangeScore ==2 && Timer >= Interval_kabi+0.1f&& Timer_Spear==0.5f)//カビ
               {
-                
-              }
-              if (ChangeScore == 2 && timer <= Interval_ketyappu)//カビ
-              {
-                
+                Timer = 0;
               }
         }
     }
