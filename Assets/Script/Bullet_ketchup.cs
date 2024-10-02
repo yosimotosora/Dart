@@ -35,7 +35,7 @@ public class Bullet_ketchup : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
         {
             Vector3 kaudou = Enemy1.transform.position - transform.position;//角度取得
-            transform.rotation = Quaternion.FromToRotation(Vector3.up, kaudou);//角度変更     
+            //transform.rotation = Quaternion.FromToRotation(Vector3.up, kaudou);//角度変更     
             return;
         }
     }

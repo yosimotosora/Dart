@@ -5,8 +5,11 @@ using UnityEngine;
 public class EnemySpawnScript : MonoBehaviour
 {
 
-    public float SpawnRange;
+    //OnTriggerEnter
+    private float SpawnRange;
     public GameObject Enemy;
+    public int ClotheHP=5;
+    public bool SpawnBool;
 
     void Start()
     {
@@ -14,15 +17,28 @@ public class EnemySpawnScript : MonoBehaviour
     }
     void Update()
     {
-        SpawnRange = Random.Range(1.98f, -4.12f);
+        SpawnRange = Random.Range(2.2f, -4.12f);
+
+        if (SpawnBool == true)
+        {
+            Instantiate(Enemy, new Vector2(1.78f, SpawnRange), Quaternion.identity);
+            SpawnBool = false;
+        }
     }
 
-    void OnCollisioneEnter2D(Collision2D collision)
+    void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collision.gameObject.tag =="Bullet")
+        if (collider.gameObject.tag =="Bullet")
         {
-            Instantiate(Enemy,new Vector2(1.78f,SpawnRange),Quaternion.identity)
+            ClotheHP -= 2;
+            SpawnBool = true;
         }
-    }//end collision
+        if (collider.gameObject.name == "tama_ketyappu_main")
+        {
+            ClotheHP -= 1;
+            SpawnBool=true;
+        }
+    }//end
+
 
 }
