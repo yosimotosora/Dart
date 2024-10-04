@@ -25,6 +25,7 @@ public class Player : MonoBehaviour
         //goal = GameObject.Find("plare");//‚±‚±‚Å–Ú“I’n‚ðŽæ“¾
         animatormae = GetComponent<Animator>();
         animatorusiro = GetComponent<Animator>();
+
     }
 
     // Update is called once per frame

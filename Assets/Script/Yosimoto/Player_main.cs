@@ -23,28 +23,19 @@ public class Player_main : MonoBehaviour
     private Animator animatormae;
     Vector3 beforemousePos;
     public static float Interval_kabi_Kari = 0.0f;
-    public Player_main spear_attack;
-    public float Timer_Spear;
+    public Spear_Attack spear_attack;
+    public float Timer_Spear;//Spear_Attackに移すための変数
     // Start is called before the first frame update
     void Start()
     {
-        Interval_kabi_Kari = Interval_kabi;
         animatormae = GetComponent<Animator>();//アニメーション
        
-    }
-    public IEnumerator ase()
-    {
-        yield return new WaitForSeconds(Interval_ase);
-    }
-    public IEnumerator ketyappu()
-    {
-        yield return new WaitForSeconds(Interval_ketyappu);
     }
     // Update is called once per frame
 
     void Update()
     {
-       // Timer_Spear = spear_attack.Timer_Spear;
+       Timer_Spear = spear_attack.Timer_Spear;
         Move();
         Change();
         Shooting();
@@ -95,11 +86,18 @@ public class Player_main : MonoBehaviour
                 //タイマーリセット
                 Timer = 0;
             }
-              if (ChangeScore ==2 && Timer >= Interval_kabi+0.1f&& Timer_Spear==0.5f)//カビ
+              if (ChangeScore ==2 && Timer >= Interval_kabi)//カビ
               {
-                Timer = 0;
+                if (ChangeScore == 2 && Timer_Spear >= Timer)
+                {
+                
+                }
               }
         }
+          else if (!Input.GetMouseButton(0))
+          {
+                Timer = 0;
+          }
     }
     void Change()
     {
