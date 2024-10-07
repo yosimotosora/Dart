@@ -32,11 +32,6 @@ public class Bullet_ketchup : MonoBehaviour
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Enemy")
-        {
-            Vector3 kaudou = Enemy1.transform.position - transform.position;//äpìxéÊìæ
-            //transform.rotation = Quaternion.FromToRotation(Vector3.up, kaudou);//äpìxïœçX     
-            return;
-        }
+
     }
 }

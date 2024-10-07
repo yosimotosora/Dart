@@ -25,6 +25,7 @@ public class Player : MonoBehaviour
         //goal = GameObject.Find("plare");//ここで目的地を取得
         animatormae = GetComponent<Animator>();
         animatorusiro = GetComponent<Animator>();
+
     }
 
     // Update is called once per frame
@@ -76,6 +77,12 @@ public class Player : MonoBehaviour
             animatorusiro.SetFloat("Move_x", tortal_x);
             animatorusiro.SetFloat("Move_y", tortal_y);
         }
-
+        if (Input.GetKeyDown(KeyCode.V))//カビ
+        {
+            tortal_x = 0;
+            tortal_y = 1;
+            animatorusiro.SetFloat("Move_x", tortal_x);
+            animatorusiro.SetFloat("Move_y", tortal_y);
+        }
     }
 }
