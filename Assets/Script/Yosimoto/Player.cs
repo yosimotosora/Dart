@@ -77,6 +77,12 @@ public class Player : MonoBehaviour
             animatorusiro.SetFloat("Move_x", tortal_x);
             animatorusiro.SetFloat("Move_y", tortal_y);
         }
-
+        if (Input.GetKeyDown(KeyCode.V))//ÉJÉr
+        {
+            tortal_x = 0;
+            tortal_y = 1;
+            animatorusiro.SetFloat("Move_x", tortal_x);
+            animatorusiro.SetFloat("Move_y", tortal_y);
+        }
     }
 }
