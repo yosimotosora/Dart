@@ -20,10 +20,6 @@ public class SwordEnemyScript : MonoBehaviour
     {
         Move();
 
-        /*
-         吉本そらに相談：プレイヤーに回転が向くように設定したつもりが90°のずれ
-        があるので、剣エネミーの画像を90°回転させた状態で用意したい
-         */
         PlayerTransform = Player.transform;
         _ThisTransform = this.transform;
         Vector3 _Vector = (_ThisTransform.position - PlayerTransform.position);

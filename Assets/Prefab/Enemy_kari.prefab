@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2300180139488347096}
   - component: {fileID: 2300180139488347109}
   - component: {fileID: 2300180139488347110}
+  - component: {fileID: 6053080509027671907}
   m_Layer: 0
   m_Name: Enemy_kari
   m_TagString: Enemy
@@ -133,3 +134,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &6053080509027671907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2300180139488347097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65c2fbf7c7f2cc743a0871d9208d5a1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
