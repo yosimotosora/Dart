@@ -34,7 +34,7 @@ public class SwordEnemyScript : MonoBehaviour
     {
         PlayerTransform = Player.transform;
         _ThisTransform = this.transform;
-        _Vector = (_ThisTransform.position - PlayerTransform.position);
+        _Vector = (_ThisTransform.position-PlayerTransform.position );
         _ThisTransform.rotation = Quaternion.FromToRotation(Vector3.up, _Vector);
     }
     void Move()
