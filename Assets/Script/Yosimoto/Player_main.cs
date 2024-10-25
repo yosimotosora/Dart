@@ -15,17 +15,21 @@ public class Player_main : MonoBehaviour
     public float Interval_ase = 0.0f;//汗の玉のインターバル
     public float Interval_ketyappu = 0.0f;//ケチャップの玉のインターバル
     public float Interval_kabi=0.0f;//カビの玉のインターバル
+    public float Interval_coffee;
     public GameObject BulletPrefab_ase;
     public GameObject BulletPrefab_ketyappu;
+    public GameObject Spear;
     public Transform ShotPoint;
     public Transform ShotPoint_ketyappu;
+    public Transform ShotPoint_Spear;
     public int ChangeScore=0;//変身切り替え
     private Animator animatormae;
     Vector3 beforemousePos;
     public static float Interval_kabi_Kari = 0.0f;
-    public Spear_Attack spear_attack;
+    //public Spear_Attack spear_attack;
     public float Timer_Spear;//Spear_Attackに移すための変数
     // Start is called before the first frame update
+    public Animator[] animators = new Animator[7];
     void Start()
     {
         animatormae = GetComponent<Animator>();//アニメーション
@@ -35,7 +39,7 @@ public class Player_main : MonoBehaviour
 
     void Update()
     {
-       Timer_Spear = spear_attack.Timer_Spear;
+       //Timer_Spear = spear_attack.Timer_Spear;
         Move();
         Change();
         Shooting();
@@ -86,12 +90,15 @@ public class Player_main : MonoBehaviour
                 //タイマーリセット
                 Timer = 0;
             }
-              if (ChangeScore ==2 && Timer >= Interval_kabi)//カビ
+              if(ChangeScore == 2 && Timer >= Interval_kabi)
+            {
+                GameObject obj = Instantiate(Spear, ShotPoint_Spear.position, ShotPoint_Spear.rotation);
+                 //タイマーリセット
+                Timer = 0;
+            }
+              if (ChangeScore ==3 && Timer >= Interval_coffee)//コーヒ
               {
-                if (ChangeScore == 2 && Timer_Spear >= Timer)
-                {
-                
-                }
+                 
               }
         }
           else if (!Input.GetMouseButton(0))
@@ -113,6 +120,10 @@ public class Player_main : MonoBehaviour
         {
             ChangeScore = 2;
 
+        }
+        if (Input.GetKeyDown(KeyCode.V))//コーヒー
+        {
+            ChangeScore = 3;
         }
     }
     void OnWillRenderObject()
