@@ -17,7 +17,9 @@ public enum GameMode
     GamePlaing, // 2 : ゲームプレイ中
     GameOver,   // 3 : ゲームオーバー演出中
     GameClear,   // 4 : ゲームクリア演出中
-    Title       //タイトル
+    Title,       //タイトル
+    GameScenes//ゲームシーン
+
 }
 
 public class GameManager : MonoBehaviour
@@ -49,6 +51,10 @@ public class GameManager : MonoBehaviour
     // ゲームクリア画面に移行するまでの時間
     [Header("ゲームクリア演出の時間(秒)")]
     public float GameClearIntervalTime = 3.0f;
+    [Header("ゲームシーンに行くまでの時間(秒)")]
+    public float GameScenesIntervalTime = 3.0f;
+
+
 
 
     public string dainisutezi;
@@ -129,6 +135,13 @@ public class GameManager : MonoBehaviour
             case GameMode.Title:
                 SceneManager.LoadScene("TitleScenes");
                 break;
+            case GameMode.GameScenes:
+                if (Timer > GameScenesIntervalTime)
+                {
+                 SceneManager.LoadScene("Game");
+
+                }
+                break;
             default:
                 // 初期化モードに移行
                 State = GameMode.Init;
@@ -165,6 +178,11 @@ public class GameManager : MonoBehaviour
     public static void Title()
     {
         State= GameMode.Title;
+    }
+    public static void Game()
+    {
+        State = GameMode.GameScenes;
+        Choice_egingu.SetMoveFlag(false);
     }
 }
 

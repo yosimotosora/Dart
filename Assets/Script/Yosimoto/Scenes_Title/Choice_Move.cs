@@ -45,7 +45,7 @@ public class Choice_Move : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-         MoveFlag =scene_manager.MoveFlag;
+         //MoveFlag =scene_manager.MoveFlag;
         if (MoveFlag == false) return;
         if (Start_Segyo==true)
         {

@@ -13,7 +13,7 @@ public class Choice_egingu : MonoBehaviour
     public float Nameraka = 0.5f;
     public float My_point = 0.5f;
     public bool Segyo;
-    public bool MoveFlag = true;
+    public static bool MoveFlag = true;
     public Scene_Manager scene_manager;
     [SerializeField] private Renderer My;
 
@@ -32,7 +32,6 @@ public class Choice_egingu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        MoveFlag=scene_manager.MoveFlag;
         if (MoveFlag == false) return;
         Choice_Point =choice_move.Choice_Point;
         Easing_Move();
@@ -99,5 +98,9 @@ public class Choice_egingu : MonoBehaviour
         yield return new WaitForSeconds(4);
         My.enabled = true;
 
+    }
+    public static void SetMoveFlag(bool flag)
+    {
+        MoveFlag = flag;
     }
 }

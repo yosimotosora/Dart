@@ -5,27 +5,38 @@ using UnityEngine.SceneManagement;
 using UnityEngine.Internal;
 
 
-public class OverManager : MonoBehaviour
+public class nweTitle : MonoBehaviour
 {
-    public string LevelSccenenName;
+
     [SerializeField]
     [ExcludeFromDocs]
+    public bool StartFag;
     // Start is called before the first frame update
     void Start()
     {
-
+        StartCoroutine("Display");
     }
 
     // Update is called once per frame
     void Update()
     {
-        MoveScenes();
+        if (StartFag == true)
+        {
+            MoveScenes();
+        }
     }
     void MoveScenes()
     {
-        if(Input.GetKeyDown(KeyCode.Space)) 
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            SceneManager.LoadScene(LevelSccenenName);
+            GameManager.Game();
         }
+    }
+    IEnumerator Display()
+    {
+
+        yield return new WaitForSeconds(4);
+        StartFag = true;
+
     }
 }
