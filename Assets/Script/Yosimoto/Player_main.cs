@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Xml.Linq;
 using UnityEngine;
 using UnityEngine.AI;
-
+using UnityEngine.UI;
 
 public class Player_main : MonoBehaviour
 {
@@ -25,11 +25,13 @@ public class Player_main : MonoBehaviour
     public int ChangeScore=0;//変身切り替え
     private Animator animatormae;
     Vector3 beforemousePos;
+    public Vector2 moveAreaLimit = new(8.0f, 4.5f);
     public static float Interval_kabi_Kari = 0.0f;
-    //public Spear_Attack spear_attack;
     public float Timer_Spear;//Spear_Attackに移すための変数
-    // Start is called before the first frame update
-    public Animator[] animators = new Animator[7];
+    public static bool MoveFlag=true;
+    [SerializeField]
+
+
     void Start()
     {
         animatormae = GetComponent<Animator>();//アニメーション
@@ -39,10 +41,19 @@ public class Player_main : MonoBehaviour
 
     void Update()
     {
-       //Timer_Spear = spear_attack.Timer_Spear;
-        Move();
-        Change();
+        //Timer_Spear = spear_attack.Timer_Spear;
+        if (MoveFlag) 
+       {
+        Move();    
         Shooting();
+        Change();
+       }
+        MoveAreaCheck();
+        float HP = Player.HP;
+        if (HP == 0)
+        {
+            GameManager.GameOvered();
+        }
     }
     void Move()//移動
     {
@@ -110,11 +121,11 @@ public class Player_main : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Z))//汗
         {
-         ChangeScore = 0;
+            ChangeScore= 0;
         }
         if (Input.GetKeyDown(KeyCode.X))//ケチャップ
         {
-         ChangeScore = 1;
+            ChangeScore= 1;
         }
         if (Input.GetKeyDown(KeyCode.C))//カビ
         {
@@ -126,16 +137,38 @@ public class Player_main : MonoBehaviour
             ChangeScore = 3;
         }
     }
-    void OnWillRenderObject()
+    void MoveAreaCheck()
     {
-    if (Camera.current.name!="SceneCamera"&&Camera.current.name!="Preview Camera")
+        Vector3 pos = transform.position;
+        if (pos.x > moveAreaLimit.x) 
         {
-            //Move();
-        } 
+            pos.x = moveAreaLimit.x;
+            MoveFlag = false;
+        }
+        if (pos.x < -moveAreaLimit.x)
+        {
+            pos.x = -moveAreaLimit.x;
+            MoveFlag = false;
+        }
+        if (pos.y > moveAreaLimit.y)
+        {
+            pos.y = moveAreaLimit.y;
+            MoveFlag = false;
+        }
+        if (pos.y < -moveAreaLimit.y)
+        {
+            pos.y = -moveAreaLimit.y;
+            MoveFlag = false;
+        }
+        else 
+        { 
+            MoveFlag = true;
+        }
+        transform.position = pos;
     }
-    private void OnCollisionEnter(Collision other)
+    public static void SetMoveFlag(bool flag)
     {
-
+        MoveFlag= flag;
     }
 }
 

@@ -10,6 +10,7 @@ public class Background : MonoBehaviour
     public GameObject Respawn;
     public float Backgrouond_x;
     public float My_x;
+    public static bool MoveFlag=true;
 
     // Start is called before the first frame update
     void Start()
@@ -20,20 +21,31 @@ public class Background : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-    Vector3 BackgrouondPint_y= Backgrouonda.transform.position;
-    Backgrouond_x = BackgrouondPint_y.x;
-    Vector3 MyPint=My.transform.position;
-    My_x = MyPint.x;
+        if (MoveFlag == true)
+        {
+        Move();
+        float HP = Player.HP;
+        if (HP == 0)
+        {
+            GameManager.GameOvered();
+        }
+        }
 
-
-    Move();
     }
     void Move()
     {
+        Vector3 BackgrouondPint_y= Backgrouonda.transform.position;
+        Backgrouond_x = BackgrouondPint_y.x;
+        Vector3 MyPint=My.transform.position;
+        My_x = MyPint.x;
         transform.position += new Vector3(Speed, 0, 0) * Time.deltaTime; 
         if (Backgrouond_x>=My_x)
         {
             transform.position = Respawn.transform.position;
         }
+    }
+    public static void SetMoveFlag(bool flag)
+    {
+        MoveFlag = flag;
     }
 }

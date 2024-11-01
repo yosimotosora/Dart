@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Scene_Manager : MonoBehaviour
 {
-    public enum GameModie
+    public enum TitleChoice
     {
         None,
         start,
@@ -14,7 +14,13 @@ public class Scene_Manager : MonoBehaviour
         usually,
         difficult,
     }
-    public GameModie modie = GameModie.None;
+    public enum GameMode
+    {
+        Title,
+        Game,
+        Over,
+    }
+    public TitleChoice modie = TitleChoice.None;
     public Choice_Move choice_move;
     public int Choice_Point = 0;
     public float Timer = 0.0f;
@@ -25,7 +31,7 @@ public class Scene_Manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        modie = GameModie.None;
+        modie = TitleChoice.None;
     }
 
     // Update is called once per frame
@@ -41,17 +47,17 @@ public class Scene_Manager : MonoBehaviour
         {
             if (Choice_Point == 3)//難易度：優しい　仮
             {
-                modie = GameModie.easy;
+                modie = TitleChoice.easy;
             }
             if (Choice_Point == 4)//難易度：普通　仮
             {
                 //SceneManager.LoadScene(LevelSccenenName);
-                modie = GameModie.usually;
+                modie = TitleChoice.usually;
             }
         }
         switch (modie)
         {
-            case GameModie.easy:
+            case TitleChoice.easy:
                 MoveFlag= false;
                 Timer += Time.deltaTime;
                 if (Timer >= SccenenInterval)
@@ -59,7 +65,7 @@ public class Scene_Manager : MonoBehaviour
                     SceneManager.LoadScene(LevelSccenenName);
                 }
                 break;
-            case GameModie.usually:
+            case TitleChoice.usually:
                 MoveFlag= false;
                 Timer += Time.deltaTime;
                 if (Timer >= SccenenInterval)

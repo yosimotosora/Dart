@@ -271,12 +271,62 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6b491d5ee52df142ba7697cec61977b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  modie: 0
   choice_move: {fileID: 960111448}
   Choice_Point: 0
   Timer: 0
   SccenenInterval: 3
   LevelSccenenName: Game
   MoveFlag: 1
+--- !u!1 &828904748
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 828904750}
+  - component: {fileID: 828904749}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &828904749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 828904748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5028bb91feeafe9438ce1ed38aa33d9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BGMData:
+  - {fileID: 0}
+  SEData:
+  - {fileID: 0}
+  SEPlayerMax: 10
+--- !u!4 &828904750
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 828904748}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.207086, y: 2.1664312, z: -0.3463659}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &960111445
 GameObject:
   m_ObjectHideFlags: 0
@@ -374,6 +424,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdda7ad40b1418c418ac4cd59ffa4236, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  modie: 0
   Choice_Point: 0
   t: 0
   t_Point: 0

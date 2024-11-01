@@ -36,7 +36,6 @@ public class Choice_Move : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        modie=GameModie.None;
         Segyo = true;
         StartCoroutine("Display");
         One.enabled = false;
