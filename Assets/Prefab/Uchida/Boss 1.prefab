@@ -1239,6 +1239,7 @@ GameObject:
   - component: {fileID: 4785030067228860396}
   - component: {fileID: 5016390902481853754}
   - component: {fileID: 5016390902481853755}
+  - component: {fileID: -3961193997692073619}
   m_Layer: 0
   m_Name: Boss 1
   m_TagString: Enemy
@@ -1304,6 +1305,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d603340c96f3aca469409b951bd9b995, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BossHP: 0
+  _Slider: {fileID: 0}
   SkillRange: 0
   SkillTime: 1
   BubblePrefab: {fileID: 3136135739528364697, guid: 0e460b249ac487e419cdf61b0d746671, type: 3}
@@ -1311,6 +1314,27 @@ MonoBehaviour:
   BossBullet1: {fileID: 4391970320867132335, guid: 4cd5a576dd101864ab5b395e3268210f, type: 3}
   BossBullet2: {fileID: 7160994027290581252, guid: a7f9306c2cec80345babca3b596ee51c, type: 3}
   BossBullet3: {fileID: 7112593217250131097, guid: 95d2d637ef7a85243bb6139cee87c99c, type: 3}
+--- !u!50 &-3961193997692073619
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4785030067228860399}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &4785030067394149609
 GameObject:
   m_ObjectHideFlags: 0

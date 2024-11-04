@@ -4,7 +4,6 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-
 public class Player : MonoBehaviour
 {
     public GameObject goal;//目的地(コンポーネント)を設定する(プレイヤー)
@@ -25,8 +24,6 @@ public class Player : MonoBehaviour
     public bool HPFlag=true;
     public static bool MoveFlag = true;
 
-    // Start is called before the first frame update
-
     void Start()
     {
         //goal = GameObject.Find("plare");//ここで目的地を取得
@@ -34,8 +31,6 @@ public class Player : MonoBehaviour
         animatorusiro = GetComponent<Animator>();
 
     }
-
-    // Update is called once per frame
     void Update()
     {
         if (MoveFlag ==true)
@@ -112,7 +107,6 @@ public class Player : MonoBehaviour
     void HPstrets(Slider HPSlider,float hp)
     {
         HPSlider.value = hp;
-
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
