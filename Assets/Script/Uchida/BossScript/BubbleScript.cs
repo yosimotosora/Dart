@@ -5,8 +5,9 @@ using UnityEngine;
 public class BubbleScript : MonoBehaviour
 {
 
-    private float MoveSpeed = 6.0f;
-
+    public float MoveSpeed = 6.0f;
+    private float DestroyTimer=0;
+    private float DestroyTime=4.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -18,8 +19,13 @@ public class BubbleScript : MonoBehaviour
     void Update()
     {
 
+        DestroyTimer += Time.deltaTime;
         transform.position -= Time.deltaTime * MoveSpeed * transform.right;
 
+        if (DestroyTimer >= DestroyTime)
+        {
+            Destroy(gameObject);
+        }
 
     }
 
