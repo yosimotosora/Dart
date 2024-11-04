@@ -1,5 +1,6 @@
 using System.Threading;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BossScript : MonoBehaviour
 {
@@ -7,6 +8,9 @@ public class BossScript : MonoBehaviour
     //※publicで設定するオブジェクトが5つある
     //Skillの数が増えた場合編集する(現在二種類・0から数える)
     private int SkillNumber=2;
+
+    public int BossHP=30;//ボスのHP
+    public Slider _Slider;//スライダー
 
     public int SkillRange;//スキルをランダムで設定する
     private float SkillTimer;//タイマー
@@ -26,6 +30,7 @@ public class BossScript : MonoBehaviour
     {
 
         SkillTimer = 0;//タイマーの初期化
+        BossHP = 3;
 
     }
 
@@ -38,7 +43,7 @@ public class BossScript : MonoBehaviour
         SkillTimer+= Time.deltaTime;//タイマーの設定
 
         SPpos = ShotPoint.transform.position;//UpdateでPositionを随時更新
-
+        _Slider.value = BossHP;//
 
         Attack();
         
@@ -91,6 +96,24 @@ public class BossScript : MonoBehaviour
         Instantiate(BossBullet3, SPpos, Quaternion.identity);
 
     }
+
+    //各BulletScriptで使用
+    void Damage(int AP)
+    {
+
+        BossHP -= AP;
+
+    }
+
+    void Dead()
+    {
+
+        if (BossHP <= 0)
+        {
+
+        }
+
+    }//end Dead
 
 
 }//END
