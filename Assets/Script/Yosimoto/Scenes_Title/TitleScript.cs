@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 
-public class Title : MonoBehaviour
+public class TitleScript : MonoBehaviour
 {
     public GameObject gool;
     public float start;//自分の位置
@@ -14,6 +14,7 @@ public class Title : MonoBehaviour
     public float dist = 0.0f;
     public float Speed = 0.0f;
     public float Nameraka = 0.5f;//最初のPleyreSpeedの割合
+    public static bool Flag = true;
 
 
     public bool MoveFlag=true;
@@ -35,25 +36,28 @@ public class Title : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(MoveFlag == true)
+        if (Flag == true)
         {
-            distanceago = gool.transform.position.y - transform.position.y;//goolのｙの座標と自分のオブジェクトのｙ
-            if (distanceago * distanceago >= 1 && moveFlg == false)
+            if(MoveFlag == true)
             {
-                t = 0;
-                moveFlg = true;
-                start = transform.position.y;
+                distanceago = gool.transform.position.y - transform.position.y;//goolのｙの座標と自分のオブジェクトのｙ
+                if (distanceago * distanceago >= 1 && moveFlg == false)
+                {
+                    t = 0;
+                    moveFlg = true;
+                    start = transform.position.y;
 
+                }
+            MoveUpdate();
             }
-        MoveUpdate();
-        }
-        if (MoveFlag==false)
-        {
-            angle += anglespeed * Time.deltaTime;//角度を更新
-            offsetY = Mathf.Sin(angle);//角度を使ってSin波を取得（比例）
-            pos.y = offsetY * distance;//Sin波（比率）に距離をかけてY座標を決定
-            pos += moveVec * Time.deltaTime;//移動量を座標に適用
-            transform.position = pos + startPos;//transformにposを代入
+            if (MoveFlag==false)
+            {
+                angle += anglespeed * Time.deltaTime;//角度を更新
+                offsetY = Mathf.Sin(angle);//角度を使ってSin波を取得（比例）
+                pos.y = offsetY * distance;//Sin波（比率）に距離をかけてY座標を決定
+                pos += moveVec * Time.deltaTime;//移動量を座標に適用
+                transform.position = pos + startPos;//transformにposを代入
+            }
         }
     }
     void MoveUpdate()
@@ -82,5 +86,9 @@ public class Title : MonoBehaviour
 
         float iti = a * dist;
         transform.position = (new Vector2(transform.position.x, start + iti));
+    }
+    public static void SetMoveFlag(bool flag)
+    {
+        Flag = flag;
     }
 }

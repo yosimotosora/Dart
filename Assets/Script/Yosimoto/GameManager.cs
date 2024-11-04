@@ -136,6 +136,7 @@ public class GameManager : MonoBehaviour
                 SceneManager.LoadScene("TitleScenes");
                 break;
             case GameMode.GameScenes:
+                Timer += Time.deltaTime;
                 if (Timer > GameScenesIntervalTime)
                 {
                  SceneManager.LoadScene("Game");
@@ -183,6 +184,7 @@ public class GameManager : MonoBehaviour
     {
         State = GameMode.GameScenes;
         Choice_egingu.SetMoveFlag(false);
+        TitleScript.SetMoveFlag(false);
     }
 }
 

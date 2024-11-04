@@ -10,27 +10,29 @@ public class nweTitle : MonoBehaviour
 
     [SerializeField]
     [ExcludeFromDocs]
-    public bool StartFag;
+    public bool StartFag=true;
+    public TitleScript titleScript;
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine("Display");
+     
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (StartFag == true)
+        StartFag = titleScript.MoveFlag;
+        if (StartFag == false)
         {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            GameManager.Game();
+        }
             MoveScenes();
         }
     }
     void MoveScenes()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            GameManager.Game();
-        }
     }
     IEnumerator Display()
     {
