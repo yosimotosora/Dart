@@ -19,10 +19,14 @@ public class EnemySpawnScript : MonoBehaviour
     {
         SpawnRange = Random.Range(2.2f, -4.12f);
 
+        if (ClotheHP % 4 == 0) {
+            SpawnBool = true;
+            ClotheHP -= 1;
+        }
         if (SpawnBool == true)
         {
-            Instantiate(Enemy, new Vector2(1.78f, SpawnRange), Quaternion.identity);
             SpawnBool = false;
+            Instantiate(Enemy, new Vector2(1.78f, SpawnRange), Quaternion.identity);
         }
     }
 
@@ -30,13 +34,13 @@ public class EnemySpawnScript : MonoBehaviour
     {
         if (collider.gameObject.tag =="Bullet")
         {
-            ClotheHP -= 2;
-            SpawnBool = true;
+            ClotheHP -= 1;
+            
         }
         if (collider.gameObject.name == "tama_ketyappu_main")
         {
             ClotheHP -= 1;
-            SpawnBool=true;
+            
         }
     }//end
 
