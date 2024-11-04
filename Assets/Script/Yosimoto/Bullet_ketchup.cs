@@ -6,32 +6,69 @@ using static UnityEngine.GraphicsBuffer;
 
 public class Bullet_ketchup : MonoBehaviour
 {
-    public GameObject Enemy1;//“G
+    public Transform Enemy1;//“G
     public float Speed = 5.0f;//ƒXƒs[ƒh 
+    public float RotationSpeed = 100;//‰ñ“]ƒXƒs[ƒh
     public float t = 0.0f;
+    public float SlerpFactor=1.0f;
+    public bool inversion=true;
+    public bool pictyer=false;
+    public bool move=false;
+    public Vector2 Enemy;
+
+
     // Start is called before the first frame update
     void Start()
     {
-        Vector3 kaudou = Enemy1.transform.position - transform.position;//Šp“xŽæ“¾
-        transform.rotation = Quaternion.FromToRotation(Vector3.up, kaudou);//Šp“x•ÏX        
+        //Vector3 kaudou = Enemy1.transform.position - transform.position;//Šp“xŽæ“¾
+        //transform.rotation = Quaternion.FromToRotation(Vector3.up, kaudou);//Šp“x•ÏX        
     }
     // Update is called once per frame
     void Update()
     {
-        if (t>=0.0f&&t<=0.5f)
-        {
-         t += Time.deltaTime;
-        }
-            else if (t >= 0.5f && t <= 1.0f)
-            {
-             t += Time.deltaTime * Speed;
-                
-            }
-        float a = Easing.SineIn(t, 1, 0, 1);
-        transform.Translate(new Vector3(0, a, 0) * Time.deltaTime*Speed);//ˆÚ“®
+        Enemy = Enemy1.transform.position;
+        LookAt2D(Enemy, inversion, pictyer, move, Speed, RotationSpeed, SlerpFactor);
+        //if (t>=0.0f&&t<=0.5f)
+        //{
+        // t += Time.deltaTime;
+        //}
+        //    else if (t >= 0.5f && t <= 1.0f)
+        //    {
+        //     t += Time.deltaTime * Speed;
+
+        //    }
+        //float a = Easing.SineIn(t, 1, 0, 1);
+        //transform.Translate(new Vector3(0, a, 0) * Time.deltaTime*Speed);//ˆÚ“®
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
 
     }
+    void LookAt2D(Vector2 targetPosition, bool inversion = true, bool pictyer = false, bool move = false, float speed = 1f, float rotationSpeed = 100f, float slerpFactor = 1f)
+    {
+        int a = 0;
+        if (pictyer == true)
+        {
+            a = 180;
+        }
+        Vector2 myPosition = (Vector2)transform.position;
+        Vector2 direction = targetPosition - myPosition;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        Quaternion currentRotation = transform.rotation;
+        Quaternion targetRotation = Quaternion.Euler(180, a, angle * -1); ;
+        transform.rotation = Quaternion.Slerp(currentRotation, targetRotation, slerpFactor * Time.deltaTime * rotationSpeed);
+        if (inversion)
+        {
+            if (angle >= 90 || angle <= -90) { transform.localScale = new Vector3(transform.localScale.x, Mathf.Abs(transform.localScale.y), transform.localScale.z); }
+            else { transform.localScale = new Vector3(transform.localScale.x, -Mathf.Abs(transform.localScale.y), transform.localScale.z); }
+        }
+        if (move)
+        {
+            Vector2 moveDirection = direction.normalized;
+            Vector2 newPosition = myPosition + moveDirection * speed * Time.deltaTime;
+            transform.position = newPosition;
+        }
+
+    }
+
 }
