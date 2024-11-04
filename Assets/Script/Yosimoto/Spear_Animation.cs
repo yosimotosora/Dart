@@ -6,6 +6,7 @@ public class Spear_Animation : MonoBehaviour
 {
     public float timer = 0.0f;
     public float Life_Time = 3.0f;
+    public int Damage = 5;
     // Start is called before the first frame update
     void Start()
     {

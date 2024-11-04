@@ -15,6 +15,7 @@ public class Bullet_ketchup : MonoBehaviour
     public bool pictyer=false;
     public bool move=false;
     public Vector2 Enemy;
+    public int Damage = 1;
 
 
     // Start is called before the first frame update

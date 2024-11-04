@@ -795,6 +795,7 @@ MonoBehaviour:
   OpeningTime: 3
   GameOverIntervalTime: 3
   GameClearIntervalTime: 3
+  GameScenesIntervalTime: 3
   dainisutezi: 
 --- !u!1 &1057588468
 GameObject:
@@ -1571,6 +1572,10 @@ PrefabInstance:
     - target: {fileID: 6019389754394183288, guid: 6f0e44bf2306bfc4597c70571b9e3cba, type: 3}
       propertyPath: m_Name
       value: player_main
+      objectReference: {fileID: 0}
+    - target: {fileID: 6019389754394183288, guid: 6f0e44bf2306bfc4597c70571b9e3cba, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 6019389754394183289, guid: 6f0e44bf2306bfc4597c70571b9e3cba, type: 3}
       propertyPath: Interval_ase
