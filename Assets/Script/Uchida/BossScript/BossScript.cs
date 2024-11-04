@@ -8,6 +8,8 @@ public class BossScript : MonoBehaviour
     //Skillの数が増えた場合編集する(現在二種類・0から数える)
     private int SkillNumber=2;
 
+    private int BossHP;
+
     public int SkillRange;//スキルをランダムで設定する
     private float SkillTimer;//タイマー
     public float SkillTime;//スキルを発動する間隔(Update内でRandomにする)
@@ -38,7 +40,6 @@ public class BossScript : MonoBehaviour
         SkillTimer+= Time.deltaTime;//タイマーの設定
 
         SPpos = ShotPoint.transform.position;//UpdateでPositionを随時更新
-
 
         Attack();
         
@@ -91,6 +92,24 @@ public class BossScript : MonoBehaviour
         Instantiate(BossBullet3, SPpos, Quaternion.identity);
 
     }
+
+    //各BulletScriptで使用
+    void Damage(int AP)
+    {
+
+        BossHP -= AP;
+
+    }
+
+    void Dead()
+    {
+
+        if (BossHP <= 0)
+        {
+
+        }
+
+    }//end Dead
 
 
 }//END
