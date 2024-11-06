@@ -1,5 +1,7 @@
 using System.Threading;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class BossScript : MonoBehaviour
@@ -46,6 +48,7 @@ public class BossScript : MonoBehaviour
         _Slider.value = BossHP;//
 
         Attack();
+        Dead();
         
     }
 
@@ -110,7 +113,7 @@ public class BossScript : MonoBehaviour
 
         if (BossHP <= 0)
         {
-
+            SceneManager.LoadScene("ClearScene");
         }
 
     }//end Dead

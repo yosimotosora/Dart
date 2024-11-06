@@ -7,18 +7,17 @@ public class EnemySpawnScript : MonoBehaviour
 
     //OnTriggerEnter
     private float SpawnRange;
-    public GameObject Enemy;
-    //•‚Ì•Ï”(ClotheHP)‚ğQÆ‚µ‚½‚¢‚½‚ßstatic‚ğ’Ç‰Á
+    public GameObject[] Enemy;
     public int ClotheHP=5;
     public bool SpawnBool;
 
-
     void Start()
     {
-        
     }
     void Update()
     {
+
+        var EnemyRange = Random.Range(0, Enemy.Length);
         SpawnRange = Random.Range(2.2f, -4.12f);
 
         if (ClotheHP % 4 == 0) {
@@ -28,7 +27,7 @@ public class EnemySpawnScript : MonoBehaviour
         if (SpawnBool == true)
         {
             SpawnBool = false;
-            Instantiate(Enemy, new Vector2(1.78f, SpawnRange), Quaternion.identity);
+            Instantiate(Enemy[EnemyRange], new Vector2(1.78f, SpawnRange), Quaternion.identity);
         }
     }
 
