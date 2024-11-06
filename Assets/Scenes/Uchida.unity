@@ -123,6 +123,63 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &212834187
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2959359086985999909, guid: 2844e2c6a626f074cafbe2533255a00c, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2959359086985999909, guid: 2844e2c6a626f074cafbe2533255a00c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.1880038
+      objectReference: {fileID: 0}
+    - target: {fileID: 2959359086985999909, guid: 2844e2c6a626f074cafbe2533255a00c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.14931434
+      objectReference: {fileID: 0}
+    - target: {fileID: 2959359086985999909, guid: 2844e2c6a626f074cafbe2533255a00c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -9.946204
+      objectReference: {fileID: 0}
+    - target: {fileID: 2959359086985999909, guid: 2844e2c6a626f074cafbe2533255a00c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2959359086985999909, guid: 2844e2c6a626f074cafbe2533255a00c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2959359086985999909, guid: 2844e2c6a626f074cafbe2533255a00c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2959359086985999909, guid: 2844e2c6a626f074cafbe2533255a00c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2959359086985999909, guid: 2844e2c6a626f074cafbe2533255a00c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2959359086985999909, guid: 2844e2c6a626f074cafbe2533255a00c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2959359086985999909, guid: 2844e2c6a626f074cafbe2533255a00c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2959359086985999911, guid: 2844e2c6a626f074cafbe2533255a00c, type: 3}
+      propertyPath: m_Name
+      value: backGrauns
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2844e2c6a626f074cafbe2533255a00c, type: 3}
 --- !u!1001 &231335233
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -224,7 +281,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 1, g: 1, b: 1, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -442,6 +499,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4785030067221049397, guid: a16c5c8541bd53b448d215b02fb4cc2e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.84
+      objectReference: {fileID: 0}
+    - target: {fileID: 4785030067221049397, guid: a16c5c8541bd53b448d215b02fb4cc2e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.39
+      objectReference: {fileID: 0}
     - target: {fileID: 4785030067228860396, guid: a16c5c8541bd53b448d215b02fb4cc2e, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -489,6 +554,10 @@ PrefabInstance:
     - target: {fileID: 4785030067228860399, guid: a16c5c8541bd53b448d215b02fb4cc2e, type: 3}
       propertyPath: m_Name
       value: Boss 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4785030067228860399, guid: a16c5c8541bd53b448d215b02fb4cc2e, type: 3}
+      propertyPath: m_TagString
+      value: Boss
       objectReference: {fileID: 0}
     - target: {fileID: 4785030067394149604, guid: a16c5c8541bd53b448d215b02fb4cc2e, type: 3}
       propertyPath: m_IsTrigger
