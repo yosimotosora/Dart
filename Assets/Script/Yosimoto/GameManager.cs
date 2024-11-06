@@ -18,7 +18,8 @@ public enum GameMode
     GameOver,   // 3 : ゲームオーバー演出中
     GameClear,   // 4 : ゲームクリア演出中
     Title,       //タイトル
-    GameScenes//ゲームシーン
+    GameScenes,//ゲームシーン
+    BossPlaing//ボス戦
 
 }
 
@@ -143,6 +144,9 @@ public class GameManager : MonoBehaviour
 
                 }
                 break;
+            case GameMode.BossPlaing:
+
+                break;
             default:
                 // 初期化モードに移行
                 State = GameMode.Init;
@@ -185,6 +189,14 @@ public class GameManager : MonoBehaviour
         State = GameMode.GameScenes;
         Choice_egingu.SetMoveFlag(false);
         TitleScript.SetMoveFlag(false);
+    }
+    public static void gamePlaing()
+    {
+        State = GameMode.GamePlaing;
+    }
+    public static void bossPlaing()
+    {
+        State = GameMode.BossPlaing;
     }
 }
 

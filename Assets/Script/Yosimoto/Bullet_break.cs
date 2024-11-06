@@ -23,7 +23,7 @@ public class Bullet_break : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
-        if (collision.gameObject.tag == "a")
+        if (collision.gameObject.tag == "a"|| collision.gameObject.tag == "Boss")
         {
             Destroy(child.gameObject);
         }

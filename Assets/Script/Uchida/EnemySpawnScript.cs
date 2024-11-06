@@ -8,8 +8,10 @@ public class EnemySpawnScript : MonoBehaviour
     //OnTriggerEnter
     private float SpawnRange;
     public GameObject Enemy;
+    //•‚Ì•Ï”(ClotheHP)‚ğQÆ‚µ‚½‚¢‚½‚ßstatic‚ğ’Ç‰Á
     public int ClotheHP=5;
     public bool SpawnBool;
+
 
     void Start()
     {

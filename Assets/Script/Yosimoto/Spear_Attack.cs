@@ -10,7 +10,7 @@ public class Spear_Attack : MonoBehaviour
     public Player_main player_main;
     public int ChangeScore = 0;//変身切り替え
     private Animator animatormae;
-    [SerializeField] private Renderer Spear;
+    [SerializeField] private GameObject Spear;
     public float Timer_Spear;//槍がアニメーションしはじめらタイマー開始のための変数
     public float Interval_Spear;//槍が攻撃し始めてからのInterval
     // Start is called before the first frame update
@@ -38,19 +38,19 @@ public class Spear_Attack : MonoBehaviour
           if(Interval_kabi< timer&&ChangeScore==2)//槍が攻撃する時
           {
             animatormae.SetBool("Spear", true);
-            Spear.enabled=true;//画像切り替え
-            Timer_Spear+= Time.deltaTime;
+            Spear.SetActive(true);//画像切り替え
+                Timer_Spear += Time.deltaTime;
                 
           }
             if (Interval_kabi >= timer && ChangeScore == 2)
             {
-                Spear.enabled = false;
+                Spear.SetActive(false);
                 animatormae.SetBool("Spear", false);
             }
           if (ChangeScore == 2 && Timer_Spear >= Interval_Spear)//槍が攻撃し始めてから攻撃終了までの計測　
           {
                 animatormae.SetBool("Spear", false);
-                Spear.enabled = false;
+                Spear.SetActive(false);
                 player_main.Timer = 0;
                 Timer_Spear =0;
           }
@@ -70,7 +70,7 @@ public class Spear_Attack : MonoBehaviour
         }
         else
         {
-            Spear.enabled = false;
+            Spear.SetActive(false);
             animatormae.SetBool("Spear", false);
             transform.rotation = Quaternion.Euler(0, 0, 0);
         }

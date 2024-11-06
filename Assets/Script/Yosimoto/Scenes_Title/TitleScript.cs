@@ -28,9 +28,10 @@ public class TitleScript : MonoBehaviour
     public float anglespeed = 0.0f;//Šp“x‚Ì‘¬‚³ ã‰º‚Ì
     public float distance = 1.0f;//Y²‚ÌˆÚ“®—Ê@ã‰º‚Ì•
     // Start is called before the first frame update
-    void Start()
+    void Start()                    
     {
-        
+        Flag = true;
+        MoveFlag = true;
     }
 
     // Update is called once per frame

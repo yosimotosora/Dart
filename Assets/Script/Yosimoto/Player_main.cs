@@ -35,7 +35,8 @@ public class Player_main : MonoBehaviour
     void Start()
     {
         animatormae = GetComponent<Animator>();//アニメーション
-       
+        GameManager.gamePlaing();
+
     }
     // Update is called once per frame
 
@@ -49,11 +50,6 @@ public class Player_main : MonoBehaviour
         Change();
        }
         MoveAreaCheck();
-        float HP = Player.HP;
-        if (HP == 0)
-        {
-            GameManager.GameOvered();
-        }
     }
     void Move()//移動
     {

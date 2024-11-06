@@ -21,7 +21,7 @@ public class Player : MonoBehaviour
     public Slider HPSlider;//体力バー
     public float Invincible_Time = 0.0f;
     public float Invincible_Interval = 3.0f;
-    public static float HP = 5;
+    public float HP = 5;
     public bool HPFlag=true;
     public static bool MoveFlag = true;
 
@@ -32,7 +32,7 @@ public class Player : MonoBehaviour
         //goal = GameObject.Find("plare");//ここで目的地を取得
         animatormae = GetComponent<Animator>();
         animatorusiro = GetComponent<Animator>();
-
+        
     }
 
     // Update is called once per frame

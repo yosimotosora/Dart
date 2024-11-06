@@ -24,11 +24,6 @@ public class Background : MonoBehaviour
         if (MoveFlag == true)
         {
         Move();
-        float HP = Player.HP;
-        if (HP == 0)
-        {
-            GameManager.GameOvered();
-        }
         }
 
     }

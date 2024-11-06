@@ -41,7 +41,7 @@ public class Bullet_ase : MonoBehaviour
         Life_Time+= Time.deltaTime;
         if (Life_Time >= Life_Interval)
         {
-            GameObject obj=Instantiate(Explosion,transform.position,transform.rotation);
+            Instantiate(Explosion,transform.position,transform.rotation);
             SoundManager.instance.OnePlaySE(SEFlag,0);
             Destroy(gameObject);
         }
@@ -51,13 +51,19 @@ public class Bullet_ase : MonoBehaviour
     {
         if (collision.gameObject.tag == "a")
         {
-            GameObject obj = Instantiate(Explosion, transform.position, transform.rotation);
+            Instantiate(Explosion, transform.position, transform.rotation);
             SoundManager.instance.OnePlaySE(SEFlag, 0);
             Destroy(gameObject);
         }
         if (collision.gameObject.tag == "Enemy")
         {
-            GameObject obj = Instantiate(Explosion, transform.position, transform.rotation);
+            Instantiate(Explosion, transform.position, transform.rotation);
+            SoundManager.instance.OnePlaySE(SEFlag, 0);
+            Destroy(gameObject);
+        }
+        if (collision.gameObject.tag == "Boss")
+        {
+            Instantiate(Explosion, transform.position, transform.rotation);
             SoundManager.instance.OnePlaySE(SEFlag, 0);
             Destroy(gameObject);
         }
