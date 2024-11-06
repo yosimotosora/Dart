@@ -1,6 +1,7 @@
 using System.Threading;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Assertions.Must;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -93,10 +94,11 @@ public class BossScript : MonoBehaviour
         /*
          ŽO‚Â‚Ì–A‚ð‚»‚ê‚¼‚êŽO•ûŒü‚É•ú‚Â
          */
-
+        var a = Quaternion.Euler(0,0,-48.0f);
+        var b = Quaternion.Euler(0, 0, 48.0f);
         Instantiate(BossBullet1, SPpos, Quaternion.identity);
-        Instantiate(BossBullet2, SPpos, Quaternion.identity);
-        Instantiate(BossBullet3, SPpos, Quaternion.identity);
+        Instantiate(BossBullet1, SPpos,a );
+        Instantiate(BossBullet1, SPpos, b);
 
     }
 
