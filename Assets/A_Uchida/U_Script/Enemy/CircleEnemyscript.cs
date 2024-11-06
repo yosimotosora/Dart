@@ -9,6 +9,9 @@ public class CircleEnemyscript : MonoBehaviour
     private float YUp=4.0f;
     private float YDown=-4.0f;
     private bool UpDownBool;
+
+    private float MoveSpeed=3.0f;
+
     //Bool‚ªtrue‚¾‚Á‚½‚çã‚É‚¢‚­Bfalse‚¾‚Á‚½‚ç‰º‚É‚¢‚­B
 
     void Start()
@@ -23,6 +26,9 @@ public class CircleEnemyscript : MonoBehaviour
         if (Thisposition.y >= YUp)
             UpDownBool = false;
         UpDown();
+
+        transform.position -= Time.deltaTime * MoveSpeed * transform.right;
+
     }
 
     void UpDown()
@@ -30,12 +36,12 @@ public class CircleEnemyscript : MonoBehaviour
         var position = transform.position;
         if (UpDownBool == true)
         {
-            position.y += UpDownSpeed;
+            position.y += UpDownSpeed*MoveSpeed*Time.deltaTime;
             this.transform.position = position;
         }
         if (UpDownBool == false)
         {
-            position.y -= UpDownSpeed;
+            position.y -= UpDownSpeed * MoveSpeed * Time.deltaTime;
             this.transform.position = position;
         }
 
